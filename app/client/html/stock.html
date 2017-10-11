@@ -1,0 +1,67 @@
+<section class="content-header">
+  <h1><i class="fa fa-heartbeat"></i> Delivery Suite
+    <small>Overview</small>
+  </h1>
+</section>
+
+<section class="content animate-bottom">
+    <div class="row">
+      <div class="col-lg-3 col-xs-6">
+
+        <div class="small-box bg-green">
+          <div class="inner">
+            <h3 ng-bind="totalQty"></h3>
+
+            <p>Monitoring Stocks</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-stats-bars"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-xs-6">
+        <div class="small-box bg-red">
+          <div class="inner">
+          <h3 ng-bind="totalLowQty"></h3>
+            <p>Low Stocks</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-alert-circled"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-xs-6">
+        <div class="small-box bg-yellow">
+          <div class="inner">
+            <h3>0</h3>
+            <p>Overstock</p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-soup-can"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div ng-repeat ="stock in stocks">
+      <div class="col-lg-2 col-xs-6">
+        <div class="info-box bg-white" style="width:105%">
+          <span class="info-box-icon"><img ng-src="/image/{{stock.status}}-icon.png" style="width:75%; -webkit-filter: grayscale(100%);"></span>
+          <div class="info-box-content">
+            <span class="info-box-text">{{ stock.name + " (" + stock.storageID + ")" }}</span>
+            <span class="info-box-number">{{ stock.qty }}</span>
+
+          <div class="progress">
+            <div class="progress-bar" ng-style="{'width':stock.percentage+'%', 'background-color': 'red'}"></div>
+          </div>
+            <span class="progress-description">
+              {{ stock.updatedOn }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
